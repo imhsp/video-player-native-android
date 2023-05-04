@@ -12,31 +12,39 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.silverorange.videoplayer.ui.VideoScreen
 
 class MainActivity : ComponentActivity() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContent {
-      TopBar()
-      TextCard()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            TopBar()
+            MainContent()
+        }
     }
-  }
 }
 
 @Preview
 @Composable
 fun TopBar() {
-  TopAppBar(title = { Text(text = "Video Player") })
+    TopAppBar(title = { Text(text = "Video Player") })
 }
 
-@Preview
 @Composable
-fun TextCard() {
-  Column(
-    modifier = Modifier.fillMaxSize(),
-    verticalArrangement = Arrangement.Center,
-    horizontalAlignment = Alignment.CenterHorizontally
-  ) {
-    Text(text = "Hello world!")
-  }
+fun MainContent() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        val navController = rememberNavController()
+        NavHost(navController = navController, startDestination = "video") {
+            composable("video") {
+                VideoScreen()
+            }
+        }
+    }
 }
