@@ -5,7 +5,6 @@ import io.reactivex.Observable
 import retrofit2.http.GET
 
 interface RemoteService {
-
     @GET("/videos")
     fun getVideoList(): Observable<VideosResponse>
 

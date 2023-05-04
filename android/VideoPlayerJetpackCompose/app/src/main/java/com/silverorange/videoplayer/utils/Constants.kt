@@ -1,5 +1,5 @@
-package com.himansh.movielist.utils
+package com.silverorange.videoplayer.utils
 
 object Constants {
-        const val BASE_URL = "http://localhost:4000/"
+        const val BASE_URL = "http://10.0.2.2:4000"
 }

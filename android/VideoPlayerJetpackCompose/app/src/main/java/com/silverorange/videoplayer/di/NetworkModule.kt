@@ -1,6 +1,6 @@
 package com.silverorange.videoplayer.di
 
-import com.himansh.movielist.utils.Constants
+import com.silverorange.videoplayer.utils.Constants
 import com.silverorange.videoplayer.data.source.RemoteService
 import dagger.Module
 import dagger.Provides
@@ -27,7 +27,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun providesRepo(retrofit: Retrofit): RemoteService {
+    fun providesRemoteService(retrofit: Retrofit): RemoteService {
         return retrofit.create(RemoteService::class.java)
     }
 }
