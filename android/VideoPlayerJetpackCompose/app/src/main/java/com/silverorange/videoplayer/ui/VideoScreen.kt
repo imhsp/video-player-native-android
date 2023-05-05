@@ -40,27 +40,8 @@ fun VideoScreen(videoViewModel: VideoViewModel = hiltViewModel()) {
                 val data = state.value as ResultMap.Success
                 VideoPlayer(
                     modifier = Modifier.weight(1f, fill = true),
-                    videoLink = data.videos[currentIndex].fullURL,
-                    hasPrev = currentIndex != 0,
-                    hasNext = currentIndex != data.videos.size - 1
+                    videoLink = data.videos,
                 )
-
-                Column(
-                    modifier = Modifier.weight(1f, fill = true)
-                        .verticalScroll(rememberScrollState())
-                ) {
-                    AndroidView(factory = {
-                        val markwon: Markwon = Markwon.create(activity)
-                        TextView(activity).apply {
-                            text = markwon.toMarkdown(data.videos[currentIndex].description)
-                            layoutParams =
-                                FrameLayout.LayoutParams(
-                                    ViewGroup.LayoutParams.MATCH_PARENT,
-                                    ViewGroup.LayoutParams.MATCH_PARENT
-                                )
-                        }
-                    })
-                }
             }
         }
 
