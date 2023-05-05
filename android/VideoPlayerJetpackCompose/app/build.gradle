@@ -72,6 +72,11 @@ dependencies {
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
     kapt 'com.google.dagger:hilt-android-compiler:2.44.2'
 
+    // Exo player dependencies
+    implementation 'androidx.media3:media3-exoplayer:1.0.1'
+    implementation "androidx.media3:media3-exoplayer-dash:1.0.1"
+    implementation 'androidx.media3:media3-ui:1.0.1'
+
     testImplementation 'junit:junit:4.13.2'
 
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.4.2'
